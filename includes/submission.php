@@ -241,6 +241,9 @@ class WPCF7_Submission {
 		$skip_mail = apply_filters( 'wpcf7_skip_mail', $skip_mail, $contact_form );
 
 		if ( $skip_mail ) {
+			if(isset($contact_form->is_success) && !$contact_form->is_success){
+				return false;
+			}
 			return true;
 		}
 
